@@ -59,7 +59,7 @@ def get_branch(
         url = get_repo_url(remote_url)
         print("url: " + url)
         build_type = os.environ["READTHEDOCS_VERSION_TYPE"]
-        match = re.match(r"(?:.*://)?.*\.com[/:](.*)\.git", remote_url)
+        match = re.match(r"(?:.*://)?.*\.com[/:](.*)(?:\.git)?", remote_url)
         assert match is not None
         repo_fqn: str = match[1]
         if build_type in ("branch", "tag"):
