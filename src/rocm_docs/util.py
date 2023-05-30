@@ -55,7 +55,9 @@ def get_branch(
 
     if os.environ.get("READTHEDOCS", ""):
         remote_url = os.environ.get("READTHEDOCS_GIT_CLONE_URL", "")
+        print("remote_url: " + remote_url)
         url = get_repo_url(remote_url)
+        print("url: " + url)
         build_type = os.environ["READTHEDOCS_VERSION_TYPE"]
         match = re.match(r"(?:.*://)?.*\.com[/:](.*)\.git", remote_url)
         assert match is not None
