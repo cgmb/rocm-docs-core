@@ -43,8 +43,8 @@ def get_branch(
         )
 
     def get_repo_url(remote_url: str) -> str:
-        ssh_pattern = re.compile(r"git@(\w+(?:\.\w+)+):(.*)\.git")
-        http_pattern = re.compile(r"(https?://.+)\.git")
+        ssh_pattern = re.compile(r"git@(\w+(?:\.\w+)+):(.*)(?:\.git)?")
+        http_pattern = re.compile(r"(https?://.+)(?:\.git)?")
         remote_url, num_subs = ssh_pattern.subn(
             r"http://\1/\2", remote_url, count=1
         )
